@@ -67,8 +67,18 @@ public class HelloWorld {
 		 */
 		
 		//TODO: Add your code here
-		
-		
+        double sum = 0.0;
+
+        System.out.println("Enter five numbers separated by commas (e.g., 1, 2.5, -3, 4, 5.0): ");
+        String inputLine = scanner.nextLine();  // Read the entire line of input
+
+		String[] numberStrings = inputLine.split(",");
+
+		for (String numstr : numberStrings) {
+			sum += Double.parseDouble(numstr.trim());
+			System.out.println("Sum: " + sum);
+		}
+
 		// Don't edit the following 3 println lines
 		System.out.println("");
 		System.out.println("----------");
@@ -121,21 +131,28 @@ public class HelloWorld {
 		//TODO: Add your code here
 		System.out.println("Give an int");
 		int y = scanner.nextInt();
+		int count = 0;
+
+
+
+		for (int i = 1; i <=y; i++) {
+			if (y % i == 0) {
+				count ++;
+			}
+		}
+
+		if (y==1) {
+			System.out.println("1");
+		}
+
+		else if (count == 2) {
+			System.out.println(y + " is prime");
+		}else{
+			System.out.println(y + " is composite");
+		}
 
 		
-    if (y == 1){
-    System.out.println("1");
-	}
-	for (int i = 2; i <= Math.sqrt(y); i++) {
-
-		if (y % i == 0) {
-			System.out.println(y + " is composite");; // Number is composite if divisible by any number other than 1 and itself
-			break;
-		}
-		System.out.println(y + " is prime");; // Number is prime
-			break;
-	}
-
+    
 		
 		// Don't edit the following 3 println lines
 		System.out.println("");
@@ -153,7 +170,21 @@ public class HelloWorld {
 		 */
 		
 		//TODO: Add your code here
-		
+		System.out.println("Seconds: ");
+		int secs = scanner.nextInt();
+
+		int hours = secs/3600;
+		if (hours > 0) {
+			hours = 0;
+		}
+
+		int remainingSecs = secs%3600;
+		int mins = remainingSecs/60;
+		int finalSecs = remainingSecs%60;
+
+		System.out.println(hours + ":" + mins + ":" + finalSecs);
+
+
 		
 		// Don't edit the following 3 println lines
 		System.out.println("");
