@@ -173,6 +173,15 @@ public class HelloWorld {
 		System.out.println("Seconds: ");
 		int secs = scanner.nextInt();
 
+		if (secs == 0) {
+		System.out.println("0:0:0");
+		}
+
+		else if (secs < 0) {
+		System.out.println("-1:-1:-1");
+		
+		}
+		else{
 		int hours = secs/3600;
 		if (hours > 0) {
 			hours = 0;
@@ -183,7 +192,7 @@ public class HelloWorld {
 		int finalSecs = remainingSecs%60;
 
 		System.out.println(hours + ":" + mins + ":" + finalSecs);
-
+	}
 
 		
 		// Don't edit the following 3 println lines
