@@ -34,32 +34,25 @@ public class SimpleGame {
 	 *   So if input seconds is -2, print and return: -1:-1:-1 
 	 *   If input seconds is -3214, likewise print and return: -1:-1:-1
 	 */
-	public static String convertTime(int secs){
-		// TODO: Your code goes here
-
-
-		if (secs == 0) {
-		System.out.println("0:0:0");
+	public static String convertTime(int secs) {
+		// First handle the invalid or special cases
+		if (secs < 0) {
+			return "-1:-1:-1"; // Return for negative input
+		} else if (secs == 0) {
+			return "0:0:0"; // Return for zero seconds
 		}
-
-		else if (secs < 0) {
-		System.out.println("-1:-1:-1");
-		
-		}
-		else{
-		int hours = secs/3600;
-		if (hours > 0) {
-			hours = 0;
-		}
-
-		int remainingSecs = secs%3600;
-		int mins = remainingSecs/60;
-		int finalSecs = remainingSecs%60;
-
-		System.out.println(hours + ":" + mins + ":" + finalSecs);
+	
+		// Normal case: calculate hours, minutes, and seconds
+		int hours = secs / 3600;
+		int remainingSecs = secs % 3600;
+		int mins = remainingSecs / 60;
+		int finalSecs = remainingSecs % 60;
+	
+		// Return the formatted string
+		return String.format("%d:%02d:%02d", hours, mins, finalSecs);
 	}
-		return null;
-	}
+	
+
 
 	/**
 	 * Write a method that adds all the digits in the given non-negative integer.
@@ -104,12 +97,15 @@ public class SimpleGame {
 		if (choice == 1) {
 			System.out.println("Enter Seconds: ");
 			int secs = sc.nextInt();
-			convertTime(secs);
+			String ok = convertTime(secs);
+			System.out.println(ok);
 		}
 		else if (choice == 2) {
 			System.out.println("Enter digits: ");
 			int input = sc.nextInt();
-			digitsSum(input);
+			int result = digitsSum(input);
+			System.out.println(result);
+			
 
 		}
 
